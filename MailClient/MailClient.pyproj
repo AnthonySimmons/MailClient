@@ -31,6 +31,9 @@
     <InterpreterReference Include="{80659ab7-4d53-4e0c-8588-a766116cbd46}\2.7" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="settings.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="login.py">
       <SubType>Code</SubType>
     </Compile>
@@ -81,6 +84,12 @@
       <HintPath>
       </HintPath>
     </Reference>
+    <Reference Include="System.Windows, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>System.Windows</Name>
+      <AssemblyName>System.Windows.dll</AssemblyName>
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
       <Name>System.Windows.Forms</Name>
       <AssemblyName>System.Windows.Forms.dll</AssemblyName>
@@ -98,6 +107,12 @@
       <Name>WindowsBase</Name>
       <AssemblyName>WindowsBase.dll</AssemblyName>
       <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\WindowsBase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WPFTextBoxAutoComplete, Version=1.0.0.2, Culture=neutral, PublicKeyToken=null">
+      <Name>WPFTextBoxAutoComplete</Name>
+      <AssemblyName>WPFTextBoxAutoComplete.dll</AssemblyName>
+      <HintPath>..\packages\WPFTextBoxAutoComplete.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xceed.Wpf.Toolkit, Version=2.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4">

@@ -1,25 +1,28 @@
 <Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        Title="Mail" Height="508.898" Width="600.636">
+        xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+        Title="Mail" Height="525" Width="600" MinHeight="525" MinWidth="600" Loaded="window_loaded" Background="Gray">
     <Grid>
-        <TextBox x:Name="textBoxTo" HorizontalAlignment="Left" Height="20" Margin="67,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="501"/>
-        <TextBox x:Name="textBoxCc" HorizontalAlignment="Left" Height="20" Margin="66,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="501"/>
-        <TextBox x:Name="textBoxBcc" HorizontalAlignment="Left" Height="20" Margin="66,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="501"/>
-        <TextBox x:Name="textBoxSubject" HorizontalAlignment="Left" Height="20" Margin="66,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="501"/>
+        <TextBox x:Name="textBoxTo" HorizontalAlignment="Stretch" Height="20" Margin="67,44,25,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" 
+                 Text="{Binding TestText, UpdateSourceTrigger=PropertyChanged}"
+                 behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding Contacts}"/>
+        <TextBox x:Name="textBoxCc" HorizontalAlignment="Stretch" Height="20" Margin="66,71,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto"/>
+        <TextBox x:Name="textBoxBcc" HorizontalAlignment="Stretch" Height="20" Margin="66,98,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto"/>
+        <TextBox x:Name="textBoxSubject" HorizontalAlignment="Stretch" Height="20" Margin="66,126,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto"/>
         <Label x:Name="labelTo" Content="To:" HorizontalAlignment="Left" Margin="36,40,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelSubject" Content="Subject:" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelCC" Content="CC:" HorizontalAlignment="Left" Margin="34,71,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelBcc" Content="BCC:" HorizontalAlignment="Left" Margin="27,97,0,0" VerticalAlignment="Top"/>
-        <RichTextBox x:Name="richTextBoxContent" HorizontalAlignment="Left" Height="275" Margin="66,176,0,0" VerticalAlignment="Top" Width="501">
+        <RichTextBox x:Name="richTextBoxContent" HorizontalAlignment="Stretch" Height="Auto" Margin="25,176,25,25" VerticalAlignment="Stretch" Width="Auto">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <Button x:Name="buttonSend" Content="Send" HorizontalAlignment="Left" Margin="523,10,0,0" VerticalAlignment="Top" Width="44" Click="send_button_click"/>
-        <Button x:Name="buttonAttach" Content="Attach" HorizontalAlignment="Left" Margin="523,151,0,0" VerticalAlignment="Top" Width="44" Click="buttonAttach_Click"/>
-        <ProgressBar x:Name="progressBarSend" HorizontalAlignment="Left" IsIndeterminate="True" Visibility="Hidden" Height="20" Margin="67,10,0,0" VerticalAlignment="Top" Width="440"/>
+        <Button x:Name="buttonSend" Content="Send" HorizontalAlignment="Right" Margin="0,10,25,0" VerticalAlignment="Top" Width="44" Click="send_button_click"/>
+        <Button x:Name="buttonAttach" Content="Attach" HorizontalAlignment="Right" Margin="0,151,25,0" VerticalAlignment="Top" Width="44" Click="buttonAttach_Click"/>
+        <ProgressBar x:Name="progressBarSend" HorizontalAlignment="Left" IsIndeterminate="True" Visibility="Hidden" Height="20" Margin="27,474,0,0" VerticalAlignment="Top" Width="540"/>
+        <ComboBox x:Name="comboBoxAttachments" Visibility="Hidden" ItemsSource="{Binding BindsDirectlyToSource=True}"  HorizontalAlignment="Left" Margin="387,151,0,0" VerticalAlignment="Top" Width="120" Height="20" IsReadOnly="True"/>
     </Grid>
 </Window>

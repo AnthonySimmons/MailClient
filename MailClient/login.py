@@ -5,7 +5,7 @@ from System.Windows import Window, Application
 class Login(Window):
     def __init__(self):
         wpf.LoadComponent(self, 'login.xaml')
-        self.buttonLogin.Click += self.login_click
+        self.textBoxHost.Focus()
         self.buttonLogin.IsDefault = True
 
     @property
@@ -40,6 +40,14 @@ class Login(Window):
 
     def login_click(self, sender, event):
         if self.validate():
+            self.DialogResult = True
             self.Close()
         else:
             self.highlight_required()
+    
+    def buttonCancel_Click(self, sender, e):
+        self.DialogResult = False
+        self.Close()
+
+    def mouse_down(self, sender, e):
+        self.DragMove()
